@@ -25,6 +25,22 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
+typedef struct {
+	const char *name;
+	const void *cmd;
+} Sp;
+const char *spcmd1[] = {"alacritty", "--class", "music_player", "-e", "ncmpcpp", NULL };
+const char *spcmd2[] = {"alacritty", "--class", "sound_control", "-e", "pulsemixer", NULL };
+const char *spcmd3[] = {"alacritty", "--class", "peanotes", "--title", "Notes", NULL };
+const char *spcmd4[] = {"keepassxc", NULL };
+static Sp scratchpads[] = {
+	/* name          cmd  */
+	{"music_player",    spcmd1},
+    {"sound_control",   spcmd2},
+	{"peanotes",        spcmd3},
+	{"keepassxc",       spcmd4},
+};
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -33,9 +49,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     iscentered   isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
+	/* class      instance              title       tags mask       iscentered      isfloating      monitor */
+	{ "Gimp",     NULL,                 NULL,       0,              0,              1,              -1 },
+	{ "Firefox",  NULL,                 NULL,       1 << 8,         0,              0,              -1 },
+	{ NULL,		  "music_player",		NULL,		SPTAG(0),       1,              1,              -1 },
+	{ NULL,		  "sound_control",	    NULL,		SPTAG(1),		1,              1,              -1 },
+	{ NULL,		  "peanotes",	        NULL,		SPTAG(2),		1,              1,              -1 },
+	{ NULL,		  "keepassxc",		    NULL,		SPTAG(3),		1,              1,              -1 },
 };
 /* window swallowing */
 static const int swaldecay = 3;
@@ -153,6 +173,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
+	{ MODKEY,            			XK_a,	   togglescratch,  {.ui = 1 } },
+	{ MODKEY,            			XK_o,	   togglescratch,  {.ui = 2 } },
+	{ MODKEY,            			XK_i,	   togglescratch,  {.ui = 3 } },
     { MODKEY,                       XK_u,      swalstopsel,    {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
@@ -177,7 +201,7 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
     { ClkClientWin,         MODKEY|ShiftMask, Button1,      swalmouse,      {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
