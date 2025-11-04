@@ -1171,7 +1171,6 @@ focus(Client *c)
 	if(selmon->sel && selmon->sel->isfullscreen){
 		togglefullscr();
 		selmon->sel = c;
-		togglefullscr();
 	}else{
 		selmon->sel = c;
 	}
