@@ -11,10 +11,15 @@ static const char col_fg_title[]     = "#fabd2f";
 static const char col_bg_title[]     = "#1d2021";
 static const char col_border_title[] = "#d79921";
 
+static const char col_fg_hid[]       = "#fabd2f";
+static const char col_bg_hid[]       = "#1d2021";
+static const char col_border_hid[]   = "#d79921";
+
 
 static const char *colors[][3]      = {
-	/*                  fg              bg                  border   */
-	[SchemeNorm]    = { col_fg_norm     , col_bg_norm       ,  col_border_norm },
-	[SchemeSel]     = { col_fg_sel      , col_bg_sel        ,  col_border_sel  },
-	[SchemeTitle]   = { col_fg_title    , col_bg_title      ,  col_border_title  },
+	/*                  fg                 bg                   border   */
+	[SchemeNorm]    = { col_fg_norm     ,  col_bg_norm       ,  col_border_norm },
+	[SchemeSel]     = { col_fg_sel      ,  col_bg_sel        ,  col_border_sel  },
+	[SchemeTitle]   = { col_fg_title    ,  col_bg_title      ,  col_border_title  },
+	[SchemeHid]     = { col_fg_hid      ,  col_bg_hid        ,  col_border_hid  },
 };
