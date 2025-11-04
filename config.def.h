@@ -35,9 +35,6 @@ static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0}
 static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
 
 // Scratchpads
-static const char notesdir[]            = "~/Documents/peanotes";
-static const char overrideoptions2[]    = "window.dimensions.columns=130";
-static const char overrideoptions1[]    = "window.dimensions.lines=35";
 typedef struct {
 	const char *name;
 	const void *cmd;
@@ -45,8 +42,9 @@ typedef struct {
 const char *spcmd1[] = {"alacritty", "--class", "music_player"  , "-e"      , "ncmpcpp", NULL };
 const char *spcmd2[] = {"alacritty", "--class", "sound_control" , "-e"      , "pulsemixer", NULL };
 const char *spcmd3[] = {"alacritty", "--class", "peanotes"      , "--title" , "Notes", 
-  "--option", overrideoptions1, overrideoptions2, 
-  "--working-directory", notesdir, "-e", "/usr/bin/nvim", 
+  "--option", "window.dimensions.columns=130", "window.dimensions.lines=35", 
+  "--working-directory", "./Documents/peanotes", 
+  "-e", "/usr/bin/nvim", 
   NULL };
 const char *spcmd4[] = {"keepassxc", NULL };
 static Sp scratchpads[] = {
