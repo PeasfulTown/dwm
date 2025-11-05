@@ -23,12 +23,11 @@ static const unsigned int gappov    = 15;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "UbuntuSansMono Nerd Font:size=16",
-                                        "Material Design Icons Desktop:style=Regular:size=18" };
-static const char dmenufont[]       = "UbuntuSansMono Nerd Font:size=15";
+static const char *fonts[]          = { "UbuntuSansMono Nerd Font:size=14", };
+static const char dmenufont[]       = "UbuntuSansMono Nerd Font:size=14";
 
 // colorscheme
-#include "themes/gruvbox-dark-hard.h"
+#include "themes/gruvbox-dark.h"
 
 // Sticky indicator drawing
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
