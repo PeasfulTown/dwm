@@ -28,7 +28,7 @@ static const char *fonts[]          = { "UbuntuSansMono Nerd Font:size=16",
 static const char dmenufont[]       = "UbuntuSansMono Nerd Font:size=15";
 
 // colorscheme
-#include "themes/gruvbox-dark.h"
+#include "themes/gruvbox-dark-hard.h"
 
 // Sticky indicator drawing
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
