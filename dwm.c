@@ -191,6 +191,7 @@ static void grabkeys(void);
 static void incnmaster(const Arg *arg);
 static void keypress(XEvent *e);
 static void killclient(const Arg *arg);
+static void losefullscreen(Client *sel, Client *next);
 static void manage(Window w, XWindowAttributes *wa);
 static void mappingnotify(XEvent *e);
 static void maprequest(XEvent *e);
@@ -230,9 +231,9 @@ static void tag(const Arg *arg);
 static void tagmon(const Arg *arg);
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
+static void togglefullscr(const Arg *arg);
 static void togglesticky(const Arg *arg);
 static void togglescratch(const Arg *arg);
-static void togglefullscr();
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
 static void unfocus(Client *c, int setfocus);
@@ -1017,12 +1018,7 @@ focus(Client *c)
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
 	}
-	if(selmon->sel && selmon->sel->isfullscreen){
-		togglefullscr();
-		selmon->sel = c;
-	}else{
-		selmon->sel = c;
-	}
+        selmon->sel = c;
 	selmon->pertag->sel[selmon->pertag->curtag] = c;
 	drawbars();
 }
@@ -1073,6 +1069,7 @@ focusstack(const Arg *arg)
 					c = i;
 	}
 	if (c) {
+                losefullscreen(selmon->sel, c);
 		focus(c);
 		restack(selmon);
 	}
@@ -1246,6 +1243,15 @@ killclient(const Arg *arg)
 }
 
 void
+losefullscreen(Client *sel, Client *next)
+{
+    if (!sel || !next)
+            return;
+    if (sel->isfullscreen && ISVISIBLE(sel) && sel->mon == next->mon && !next->isfloating)
+            setfullscreen(sel, 0);
+}
+
+void
 manage(Window w, XWindowAttributes *wa)
 {
 	Client *c, *t = NULL;
@@ -1323,8 +1329,10 @@ manage(Window w, XWindowAttributes *wa)
 		(unsigned char *) &(c->win), 1);
 	XMoveResizeWindow(dpy, c->win, c->x + 2 * sw, c->y, c->w, c->h); /* some windows require this */
 	setclientstate(c, NormalState);
-	if (c->mon == selmon)
+	if (c->mon == selmon) {
+                losefullscreen(selmon->sel, c);
 		unfocus(selmon->sel, 0);
+        }
 	c->mon->sel = c;
 	arrange(c->mon);
 	XMapWindow(dpy, c->win);
@@ -2178,6 +2186,13 @@ togglefloating(const Arg *arg)
 }
 
 void
+togglefullscr(const Arg *arg)
+{
+    if(selmon->sel)
+        setfullscreen(selmon->sel, !selmon->sel->isfullscreen);
+}
+
+void
 togglesticky(const Arg *arg)
 {
 	if (!selmon->sel)
@@ -2209,14 +2224,6 @@ togglescratch(const Arg *arg)
 	} else {
 		selmon->tagset[selmon->seltags] |= scratchtag;
 		spawn(&sparg);
-	}
-}
-
-void
-togglefullscr()
-{
-	if (selmon->sel){
-		setfullscreen(selmon->sel, !selmon->sel->isfullscreen);
 	}
 }
 
@@ -2291,7 +2298,6 @@ unmanage(Client *c, int destroyed)
 	int i;
 	Monitor *m = c->mon;
 	XWindowChanges wc;
-	int fullscreen = (selmon->sel == c && selmon->sel->isfullscreen)?1:0;
 
 	for (i = 0; i < LENGTH(tags) + 1; i++)
 		if (c->mon->pertag->sel[i] == c)
@@ -2313,9 +2319,6 @@ unmanage(Client *c, int destroyed)
 	}
 	free(c);
 	focus(NULL);
-	if(fullscreen){
-		togglefullscr();
-	}
 	updateclientlist();
 	arrange(m);
 }
