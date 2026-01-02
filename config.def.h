@@ -23,8 +23,8 @@ static const unsigned int gappov    = 5;       /* vert outer gap between windows
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "UbuntuSansMono Nerd Font:size=14", };
-static const char dmenufont[]       = "UbuntuSansMono Nerd Font:size=14";
+static const char *fonts[]          = { "FantasqueSansM Nerd Font Mono:size=14", };
+static const char dmenufont[]       = "FantasqueSansM Nerd Font Mono:size=14";
 
 // colorscheme
 #include "themes/gruvbox-dark.h"
