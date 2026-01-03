@@ -16,6 +16,7 @@ static const char *mediapreviouscmd[] = { "playerctl", "previous", NULL };
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int gappih    = 5;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 5;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 5;       /* horiz outer gap between windows and screen edge */
@@ -57,31 +58,32 @@ static Sp scratchpads[] = {
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-static const unsigned int ulinepad	    = 8;	/* horizontal padding between the underline and tag */
+static const unsigned int ulinepad	= 8;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
 static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
-static const int ulineall 		        = 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-    /* class           instance           title            tags mask  iscentered  isfloating  monitor */
-    { "Gimp"         , NULL             , NULL           , 0        , 0         , 1         , -1 } ,
-    { "Firefox"      , NULL             , NULL           , 1 << 8   , 0         , 0         , -1 } ,
-    // Gaming
-    { "Steam"        , NULL             , NULL           , 1 << 8   , 0         , 0         , 0  } ,
-    { NULL           , "steamwebhelper" , NULL           , 1 << 8   , 0         , 0         , 0  } ,
-    { "Lutris"       , NULL             , NULL           , 1 << 7   , 0         , 0         , 0  } ,
-    // Communication
-    { "thunderbird"  , NULL             , NULL           , 1 << 8   , 0         , 0         , 0  } ,
-    // Scratchpads
-    { NULL           , NULL             , "Event Tester" , 0        , 0         , 0         , -1 } ,
-    { NULL           , "music_player"   , NULL           , SPTAG(0) , 1         , 1         , -1 } ,
-    { NULL           , "sound_control"  , NULL           , SPTAG(1) , 1         , 1         , -1 } ,
-    { NULL           , "peanotes"       , NULL           , SPTAG(2) , 1         , 1         , -1 } ,
-    { NULL           , "keepassxc"      , NULL           , SPTAG(3) , 1         , 1         , -1 } ,
+    /* class         instance           title           tags mask  iscentered   isfloating      isterminal  noswallow   monitor */
+    {"Gimp",         NULL,              NULL,           0,         0,           1,              0,          0,          -1},
+    {"Firefox",      NULL,              NULL,           1<<8,      0,           0,              0,          -1,         -1},
+    {"Alacritty",    NULL,              NULL,           0,         0,           0,              1,          0,          -1},
+    //Gaming
+    {"Steam",        NULL,              NULL,           1<<8,      0,           0,              0,          0,          0},
+    {NULL,           "steamwebhelper",  NULL,           1<<8,      0,           0,              0,          0,          0},
+    {"Lutris",       NULL,              NULL,           1<<7,      0,           0,              0,          0,          0},
+    //Communication
+    {"thunderbird",  NULL,              NULL,           1<<8,      0,           0,              0,          0,          0},
+    {NULL,           NULL,              "EventTester",  0,         0,           0,              0,          1,          -1},
+    //Scratchpads
+    {NULL,           "music_player",    NULL,           SPTAG(0),  1,           1,              0,          0,          -1},
+    {NULL,           "sound_control",   NULL,           SPTAG(1),  1,           1,              0,          0,          -1},
+    {NULL,           "peanotes",        NULL,           SPTAG(2),  1,           1,              0,          0,          -1},
+    {NULL,           "keepassxc",       NULL,           SPTAG(3),  1,           1,              0,          0,          -1},
 };
 
 /* layout(s) */
