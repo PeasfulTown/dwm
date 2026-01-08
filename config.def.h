@@ -42,7 +42,7 @@ typedef struct {
 const char *spcmd1[] = {"alacritty", "--class", "music_player"  , "-e"      , "ncmpcpp", NULL };
 const char *spcmd2[] = {"alacritty", "--class", "sound_control" , "-e"      , "pulsemixer", NULL };
 const char *spcmd3[] = {"alacritty", "--class", "peanotes"      , "--title" , "Notes", 
-  "--option", "window.dimensions.columns=130", "window.dimensions.lines=35", 
+  "--option", "window.dimensions.columns=95", "window.dimensions.lines=50", 
   "--working-directory", "./Documents/peanotes", 
   "-e", "/usr/bin/vim", 
   NULL };
@@ -199,6 +199,10 @@ static const Key keys[] = {
     { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { MODKEY|ControlMask,           XK_bracketright,  viewnext,       {0} },
+    { MODKEY|ControlMask,           XK_bracketleft,   viewprev,       {0} },
+    { MODKEY|ShiftMask,             XK_bracketright,  tagtonext,      {0} },
+    { MODKEY|ShiftMask,             XK_bracketleft,   tagtoprev,      {0} },
 
     // Resize Clients
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
