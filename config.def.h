@@ -17,10 +17,10 @@ static const char *mediapreviouscmd[] = { "playerctl", "previous", NULL };
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const unsigned int gappih    = 5;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 5;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 5;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 5;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 0;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 0;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 0;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 0;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -199,8 +199,8 @@ static const Key keys[] = {
     { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
     { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { MODKEY|ControlMask,           XK_bracketright,  viewnext,       {0} },
-    { MODKEY|ControlMask,           XK_bracketleft,   viewprev,       {0} },
+    { MODKEY,                       XK_bracketright,  viewnext,       {0} },
+    { MODKEY,                       XK_bracketleft,   viewprev,       {0} },
     { MODKEY|ShiftMask,             XK_bracketright,  tagtonext,      {0} },
     { MODKEY|ShiftMask,             XK_bracketleft,   tagtoprev,      {0} },
 
