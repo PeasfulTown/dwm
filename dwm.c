@@ -2314,7 +2314,7 @@ tagtonext(const Arg *arg)
 		return;
 
 	tag(&(const Arg){.ui = tmp });
-	view(&(const Arg){.ui = tmp });
+	// view(&(const Arg){.ui = tmp });
 }
 
 void
@@ -2329,7 +2329,7 @@ tagtoprev(const Arg *arg)
 		return;
 
 	tag(&(const Arg){.ui = tmp });
-	view(&(const Arg){.ui = tmp });
+	// view(&(const Arg){.ui = tmp });
 }
 
 void
