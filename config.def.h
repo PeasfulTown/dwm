@@ -24,11 +24,11 @@ static const unsigned int gappov    = 0;       /* vert outer gap between windows
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Input Nerd Font Mono:size=14", };
-static const char dmenufont[]       = "Input Nerd Font Mono:size=14";
+static const char *fonts[]          = { "Input Nerd Font Mono:size=11", };
+static const char dmenufont[]       = "Input Nerd Font Mono:size=11";
 
 // colorscheme
-#include "themes/gruvbox-dark.h"
+#include "themes/modus-vivendi-tinted.h"
 
 // Sticky indicator drawing
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
