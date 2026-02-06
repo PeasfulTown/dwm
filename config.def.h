@@ -34,29 +34,6 @@ static const char dmenufont[]       = "Input Nerd Font Mono:size=11";
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
 static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
 
-
-
-// Scratchpads
-// typedef struct {
-// 	const char *name;
-// 	const void *cmd;
-// } Sp;
-// const char *spcmd1[] = {"alacritty", "--class", "music_player"  , "-e"      , "ncmpcpp", NULL };
-// const char *spcmd2[] = {"alacritty", "--class", "sound_control" , "-e"      , "pulsemixer", NULL };
-// const char *spcmd3[] = {"alacritty", "--class", "peanotes"      , "--title" , "Notes", 
-//   "--option", "window.dimensions.columns=95", "window.dimensions.lines=50", 
-//   "--working-directory", "./Documents/peanotes", 
-//   "-e", "/usr/bin/vim", 
-//   NULL };
-// const char *spcmd4[] = {"keepassxc", NULL };
-// static Sp scratchpads[] = {
-// 	/* name             cmd  */
-//         { "music_player"  , spcmd1 } ,
-//         { "sound_control" , spcmd2 } ,
-//         { "peanotes"      , spcmd3 } ,
-//         { "keepassxc"     , spcmd4 } ,
-// };
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -86,10 +63,6 @@ static const Rule rules[] = {
     {NULL,           NULL,              "auctrl",       0,         1,           1,              1,          1,          -1,      'a'},
     {NULL,           "keepassxc",       NULL,           0,         1,           1,              0,          1,          -1,      'k'},
     {NULL,           NULL,              "muplr",        0,         1,           1,              1,          1,          -1,      'm'},
-    /* {NULL,           "music_player",    NULL,           SPTAG(0),  1,           1,              0,          0,          -1}, */
-    /* {NULL,           "sound_control",   NULL,           SPTAG(1),  1,           1,              0,          0,          -1}, */
-    /* {NULL,           "peanotes",        NULL,           SPTAG(2),  1,           1,              0,          0,          -1}, */
-    /* {NULL,           "keepassxc",       NULL,           SPTAG(3),  1,           1,              0,          0,          -1}, */
 };
 
 /* layout(s) */
