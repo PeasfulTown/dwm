@@ -28,7 +28,7 @@ static const char *fonts[]          = { "Input Nerd Font Mono:size=11", };
 static const char dmenufont[]       = "Input Nerd Font Mono:size=11";
 
 // colorscheme
-#include "themes/modus-vivendi.h"
+#include "themes/modus-operandi.h"
 
 // Sticky indicator drawing
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
