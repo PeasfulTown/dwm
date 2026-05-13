@@ -14,7 +14,7 @@ static const char *medianextcmd[]     = { "playerctl", "next", NULL };
 static const char *mediapreviouscmd[] = { "playerctl", "previous", NULL };
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int gappih    = 0;       /* horiz inner gap between windows */
@@ -24,8 +24,8 @@ static const unsigned int gappov    = 0;       /* vert outer gap between windows
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Input Nerd Font Mono:size=11", };
-static const char dmenufont[]       = "Input Nerd Font Mono:size=11";
+static const char *fonts[]          = { "Comic Code:style=Bold:size=11", };
+static const char dmenufont[]       = "Comic Code:size=11";
 
 // colorscheme
 #include "themes/modus-operandi.h"
@@ -83,7 +83,7 @@ static const Layout layouts[] = {
 	// { "[\\]",     dwindle },
 	// { "H[]",      deck },
 	// { "TTT",      bstack },
-	// { "===",      bstackhoriz },
+	{ "===",      bstackhoriz },
 	// { "HHH",      grid },
 	// { "###",      nrowgrid },
 	// { "---",      horizgrid },
@@ -127,7 +127,7 @@ static const char *xcolor[]                 = { "xcolor", "-s", NULL };
 static const char *filemanager[]            = { "pcmanfm", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *peanotescmd[]    = { "n", "alacritty", "-T", "peanotes", "--working-directory", "./Documents/peanotes", "-e", "vim", NULL };
+static const char *peanotescmd[]    = { "n", "alacritty", "-T", "peanotes", "--working-directory", "./Documents/peanotes", "-e", "nvim", NULL };
 static const char *auctrlcmd[]      = { "a", "alacritty", "-T", "auctrl", "-e", "pulsemixer", NULL };
 static const char *muplrcmd[]       = { "m", "alacritty", "-T", "muplr", "-e", "ncmpcpp", NULL };
 static const char *keepassxc[]      = { "k", "keepassxc", NULL };
