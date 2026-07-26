@@ -24,11 +24,11 @@ static const unsigned int gappov    = 0;       /* vert outer gap between windows
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Comic Code:style=Bold:size=11", };
-static const char dmenufont[]       = "Comic Code:size=11";
+static const char *fonts[]          = { "Pragmata Pro Mono:style=Bold:size=14", };
+static const char dmenufont[]       = "Pragmata Pro Mono:size=14";
 
 // colorscheme
-#include "themes/modus-operandi.h"
+#include "themes/modus-vivendi.h"
 
 // Sticky indicator drawing
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
@@ -57,7 +57,7 @@ static const Rule rules[] = {
     {"Lutris",       NULL,              NULL,           1<<7,      0,           0,              0,          0,          0,       0},
     //Communication
     {"thunderbird",  NULL,              NULL,           1<<8,      0,           0,              0,          0,          0,       0},
-    {NULL,           NULL,              "EventTester",  0,         0,           0,              0,          1,          -1,      0},
+    {NULL,           NULL,              "Event Tester", 0,         0,           0,              0,          1,          -1,      0},
     //Scratchpads
     {NULL,           NULL,              "peanotes",     0,         1,           1,              1,          1,          -1,      'n'},
     {NULL,           NULL,              "auctrl",       0,         1,           1,              1,          1,          -1,      'a'},
@@ -176,7 +176,7 @@ static const Key keys[] = {
     { MODKEY|ControlMask,           XK_d,      incnmaster,     {.i = -1 } },
     
     { MODKEY,                       XK_Tab,    view,           {0} },
-    { MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
+    { MODKEY,                       XK_space,  zoom,           {0} },
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 
@@ -203,7 +203,7 @@ static const Key keys[] = {
     { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
     { MODKEY|ControlMask,	    XK_comma,  cyclelayout,    {.i = -1 } },
     { MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
-    { MODKEY,                       XK_space,  setlayout,      {0} },
+    { MODKEY|ControlMask,           XK_space,  setlayout,      {0} },
     
     { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
     { MODKEY,                       XK_f,      togglefullscr,  {0} },
