@@ -124,7 +124,7 @@ static const char *dunstcontext[]           = { "dunstctl", "context", NULL };
 static const char *dunstclose[]             = { "dunstctl", "close", NULL };
 static const char *rofi[]                   = { "rofi", "-show", "drun", NULL };
 static const char *xcolor[]                 = { "xcolor", "-s", NULL };
-static const char *filemanager[]            = { "pcmanfm", NULL };
+static const char *filemanager[]            = { "pcmanfm-qt", NULL };
 
 /*First arg only serves to match against key in rules*/
 static const char *peanotescmd[]    = { "n", "alacritty", "-T", "peanotes", "--working-directory", "./Documents/peanotes", "-e", "nvim", NULL };
