@@ -1,10 +1,10 @@
 static const char col_fg_norm[]      = "#000000";
 static const char col_bg_norm[]      = "#ffffff";
-static const char col_border_norm[]  = "#00ff00";
+static const char col_border_norm[]  = "#ffffff";
 
 static const char col_fg_sel[]       = "#000000";
 static const char col_bg_sel[]       = "#ccdfff";
-static const char col_border_sel[]   = "#FF0000";
+static const char col_border_sel[]   = "#884900";
 
 
 static const char col_fg_title[]     = "#000000";
