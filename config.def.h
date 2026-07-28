@@ -106,8 +106,8 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *brn_up_cmd[]             = { "brightnessctl", "set", "10%+", NULL };
-static const char *brn_dn_cmd[]             = { "brightnessctl", "set", "10%-", NULL };
+static const char *brn_up_cmd[]             = { "brightness_control", "up", NULL };
+static const char *brn_dn_cmd[]             = { "brightness_control", "down", NULL };
 static char dmenumon[2]                     = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]               = { "dmenu_run"
                                               , "-m", dmenumon
