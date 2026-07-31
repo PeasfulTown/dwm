@@ -1,6 +1,6 @@
 static const char col_fg_norm[]      = "#000000";
 static const char col_bg_norm[]      = "#ffffff";
-static const char col_border_norm[]  = "#ffffff";
+static const char col_border_norm[]  = "#e0e0e0";
 
 static const char col_fg_sel[]       = "#000000";
 static const char col_bg_sel[]       = "#ccdfff";

@@ -14,7 +14,7 @@ static const char *medianextcmd[]     = { "playerctl", "next", NULL };
 static const char *mediapreviouscmd[] = { "playerctl", "previous", NULL };
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int gappih    = 0;       /* horiz inner gap between windows */
@@ -59,7 +59,7 @@ static const Rule rules[] = {
     {"thunderbird",  NULL,              NULL,           1<<8,      0,           0,              0,          0,          0,       0},
     {NULL,           NULL,              "Event Tester", 0,         0,           0,              0,          1,          -1,      0},
     //Scratchpads
-    {NULL,           NULL,              "peanotes",     0,         1,           1,              1,          1,          -1,      'n'},
+    {NULL,           NULL,              "notesscratch", 0,         1,           1,              1,          1,          -1,      'n'},
     {NULL,           NULL,              "auctrl",       0,         1,           1,              1,          1,          -1,      'a'},
     {NULL,           "keepassxc",       NULL,           0,         1,           1,              0,          1,          -1,      'k'},
     {NULL,           NULL,              "muplr",        0,         1,           1,              1,          1,          -1,      'm'},
@@ -127,7 +127,7 @@ static const char *xcolor[]                 = { "xcolor", "-s", NULL };
 static const char *filemanager[]            = { "pcmanfm-qt", NULL };
 
 /*First arg only serves to match against key in rules*/
-static const char *peanotescmd[]    = { "n", "alacritty", "-T", "peanotes", "--working-directory", "./Documents/peanotes", "-e", "nvim", NULL };
+static const char *peanotescmd[]    = { "n", "alacritty", "-T", "notesscratch", "--working-directory", "./Documents/peanotes", "-e", "nvim", NULL };
 static const char *auctrlcmd[]      = { "a", "alacritty", "-T", "auctrl", "-e", "pulsemixer", NULL };
 static const char *muplrcmd[]       = { "m", "alacritty", "-T", "muplr", "-e", "ncmpcpp", NULL };
 static const char *keepassxc[]      = { "k", "keepassxc", NULL };
